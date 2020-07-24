@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Promise对象</title>
+</head>
+
+<body>
+    <script>
+        // const promises = [fetch('index.html'), fetch('https://does-not-exist/')];
+        // const results = await Promise.allSettled(promises);
+
+        // // 过滤出成功的请求
+        // const successfulPromises = results.filter(p => p.status === 'fulfilled');
+
+        // // 过滤出失败的请求，并输出原因
+        // const errors = results
+        //     .filter(p => p.status === 'rejected')
+        //     .map(p => p.reason);
+
+
+        // const p = Promise.resolve()
+        // p.then(() => {
+        //     setTimeout(() => console.log('hello'), 1000)
+        // })
+
+        // console.log('world')
+
+        // 立即resolve()的 Promise 对象，是在本轮“事件循环”（event loop）的结束时执行，而不是在下一轮“事件循环”的开始时。
+        // setTimeout(fn, 0)在下一轮“事件循环”开始时执行，Promise.resolve()在本轮“事件循环”结束时执行，console.log('one')则是立即执行，因此最先输出。
+        setTimeout(function () {
+            console.log('three');
+        }, 0);
+
+        Promise.resolve().then(function () {
+            console.log('two');
+        });
+
+        console.log('one');
+
+        // one
+        // two
+        // three
+
+
+        // const promises = [fetch('index.html'), fetch('https://does-not-exist/')];
+        // const results = await Promise.allSettled(promises); //Uncaught SyntaxError: await is only valid in async function
+
+    </script>
+</body>
+
+</html>

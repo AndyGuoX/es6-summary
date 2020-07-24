@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Class的基本语法</title>
+</head>
+
+<body>
+    <script>
+        class Point {
+            constructor(x, y) {
+                this.x = x
+                this.y = y
+            }
+
+            toString() {
+                return `(${this.x} + ${this.y})`
+            }
+
+            a() {
+
+            }
+        }
+
+        let point = new Point(1, 2)
+        console.log(point.toString())
+
+        // 定义类
+        // 与 ES5 一样，实例的属性除非显式定义在其本身（即定义在this对象上），否则都是定义在原型上（即定义在class上）。
+        // 不需要在实例属性前面加上this
+        class Point1 {
+            z = 0
+            constructor(x, y) {
+                this.x = x;
+                this.y = y;
+            }
+
+            toString() {
+                return '(' + this.x + ', ' + this.y + ')';
+            }
+
+        }
+
+        var point1 = new Point1(2, 3);
+
+        point1.toString() // (2, 3)
+
+        console.log(point1.hasOwnProperty('x')) // true
+        point1.hasOwnProperty('y') // true
+        console.log(point1.hasOwnProperty('z')) // true
+        point1.hasOwnProperty('toString') // false
+        point1.__proto__.hasOwnProperty('toString') // true
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>数组的扩展</title>
+</head>
+
+<body>
+    <div></div>
+    <div></div>
+    <div></div>
+    <script>
+        console.log(...[1, 2, 3])
+
+        // ES5 的写法 求数组的最大值    
+        Math.max.apply(null, [14, 3, 77])
+
+        // ES6 的写法
+        Math.max(...[14, 3, 77])
+
+        // 等同于
+        Math.max(14, 3, 77);
+
+        let dom = document.querySelectorAll("div")
+        console.log(...dom)
+    </script>
+</body>
+
+</html>

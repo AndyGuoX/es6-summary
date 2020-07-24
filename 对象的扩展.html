@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>对象的扩展</title>
+</head>
+
+<body>
+    <script>
+        let lastWord = 'last word';
+
+        const a = {
+            'first word': 'hello',
+            [lastWord]: 'world',
+            ['a' + 'bc']: 123
+        };
+
+        console.log(a['first word']) // "hello"
+        console.log(a[lastWord]) // "world"
+        console.log(a['last word']) // "world"
+        console.log(a['abc']) // 123
+        console.log(a['a' + 'bc']) // 123
+
+        const obj = {
+            get foo() { },
+            set foo(x) { }
+        };
+
+        const descriptor = Object.getOwnPropertyDescriptor(obj, 'foo');
+
+        console.log(descriptor.get.name) // “get foo”
+
+        let o1 = { a: 1 };
+        let o2 = { b: 2 };
+        o2.__proto__ = o1;
+        console.log(o2)
+        console.log(o2.a) // 1
+        let { ...o3 } = o2;
+        o3 // { b: 2 }
+        o3.a // undefined
+
+        console.log({...{ a: 1, b: 2 } })
+    </script>
+</body>
+
+</html>

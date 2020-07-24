@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>字符串的新增方法</title>
+</head>
+
+<body>
+    <script>
+        let str = String.fromCodePoint(0x20BB7) //将unicode编码转换为字符串
+        console.log(str)
+
+        let s = '𠮷'
+        console.log(s.length)
+
+        let s1 = '12'.padStart(10, 'YYYY-MM-DD') // "YYYY-MM-12"
+        let s2 = '09-12'.padStart(10, 'YYYY-MM-DD') // "YYYY-09-12"
+        console.log(s1, s2)
+
+        let s3 = String.raw`Hi\n${2 + 3}!`
+        console.log(s3)
+    </script>
+</body>
+
+</html>
